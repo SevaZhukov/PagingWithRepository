@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.memebattle.pagingwithrepository.domain.repository
+package com.memebattle.pagingwithrepository.domain.repository.boundary
 
 import androidx.paging.PagedList
 import androidx.annotation.MainThread
@@ -24,7 +24,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.Executor
-import PagingRequestHelper
+import com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper
+import com.memebattle.pagingwithrepository.domain.repository.network.createStatusLiveData
 
 
 /**
@@ -32,7 +33,7 @@ import PagingRequestHelper
  * database cannot provide any more data.
  * <p>
  * The boundary callback might be called multiple times for the same direction so it does its own
- * rate limiting using the PagingRequestHelper class.
+ * rate limiting using the com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper class.
  */
 class SubredditBoundaryCallback(
         private val subredditName: String,

@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.memebattle.pagingwithrepository.domain.repository
+package com.memebattle.pagingwithrepository.domain.repository.core
 
 import com.memebattle.pagingwithrepository.domain.model.RedditPost
+import com.memebattle.pagingwithrepository.domain.repository.core.Listing
 
 /**
  * Common interface shared by the different repository implementations.
@@ -25,10 +26,4 @@ import com.memebattle.pagingwithrepository.domain.model.RedditPost
  */
 interface RedditPostRepository {
     fun postsOfSubreddit(subReddit: String, pageSize: Int): Listing<RedditPost>
-
-    enum class Type {
-        IN_MEMORY_BY_ITEM,
-        IN_MEMORY_BY_PAGE,
-        DB
-    }
 }

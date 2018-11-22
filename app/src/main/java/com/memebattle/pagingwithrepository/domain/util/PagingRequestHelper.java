@@ -1,4 +1,4 @@
-/*
+package com.memebattle.pagingwithrepository.domain.util;/*
  * Copyright 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,13 +41,13 @@ import androidx.paging.DataSource;
  * class PagingBoundaryCallback extends PagedList.BoundaryCallback&lt;MyItem> {
  *     // TODO replace with an executor from your application
  *     Executor executor = Executors.newSingleThreadExecutor();
- *     PagingRequestHelper helper = new PagingRequestHelper(executor);
+ *     com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper helper = new com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper(executor);
  *     // imaginary API service, using Retrofit
  *     MyApi api;
  *
  *     {@literal @}Override
  *     public void onItemAtFrontLoaded({@literal @}NonNull MyItem itemAtFront) {
- *         helper.runIfNotRunning(PagingRequestHelper.RequestType.BEFORE,
+ *         helper.runIfNotRunning(com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper.RequestType.BEFORE,
  *                 helperCallback -> api.getTopBefore(itemAtFront.getName(), 10).enqueue(
  *                         new Callback&lt;ApiResponse>() {
  *                             {@literal @}Override
@@ -66,7 +66,7 @@ import androidx.paging.DataSource;
  *
  *     {@literal @}Override
  *     public void onItemAtEndLoaded({@literal @}NonNull MyItem itemAtEnd) {
- *         helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER,
+ *         helper.runIfNotRunning(com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper.RequestType.AFTER,
  *                 helperCallback -> api.getTopBefore(itemAtEnd.getName(), 10).enqueue(
  *                         new Callback&lt;ApiResponse>() {
  *                             {@literal @}Override
@@ -88,17 +88,17 @@ import androidx.paging.DataSource;
  * The helper provides an API to observe combined request status, which can be reported back to the
  * application based on your business rules.
  * <pre>
- * MutableLiveData&lt;PagingRequestHelper.Status> combined = new MutableLiveData&lt;>();
+ * MutableLiveData&lt;com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper.Status> combined = new MutableLiveData&lt;>();
  * helper.addListener(status -> {
  *     // merge multiple states per request type into one, or dispatch separately depending on
  *     // your application logic.
  *     if (status.hasRunning()) {
- *         combined.postValue(PagingRequestHelper.Status.RUNNING);
+ *         combined.postValue(com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper.Status.RUNNING);
  *     } else if (status.hasError()) {
  *         // can also obtain the error via {@link StatusReport#getErrorFor(RequestType)}
- *         combined.postValue(PagingRequestHelper.Status.FAILED);
+ *         combined.postValue(com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper.Status.FAILED);
  *     } else {
- *         combined.postValue(PagingRequestHelper.Status.SUCCESS);
+ *         combined.postValue(com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper.Status.SUCCESS);
  *     }
  * });
  * </pre>
@@ -116,7 +116,7 @@ public class PagingRequestHelper {
     @NonNull
     final CopyOnWriteArrayList<Listener> mListeners = new CopyOnWriteArrayList<>();
     /**
-     * Creates a new PagingRequestHelper with the given {@link Executor} which is used to run
+     * Creates a new com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper with the given {@link Executor} which is used to run
      * retry actions.
      *
      * @param retryService The {@link Executor} that can run the retry actions.

@@ -1,8 +1,8 @@
-package com.memebattle.pagingwithrepository.domain.repository
+package com.memebattle.pagingwithrepository.domain.repository.network
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import PagingRequestHelper
+import com.memebattle.pagingwithrepository.domain.util.PagingRequestHelper
 
 private fun getErrorMessage(report: PagingRequestHelper.StatusReport): String {
     return PagingRequestHelper.RequestType.values().mapNotNull {

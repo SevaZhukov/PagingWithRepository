@@ -5,7 +5,6 @@ import androidx.annotation.MainThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import androidx.paging.LivePagedListBuilder
 import com.android.example.paging.pagingwithnetwork.reddit.api.RedditApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,7 +16,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.Executors
-
+import androidx.paging.LivePagedListBuilder
+import com.memebattle.pagingwithrepository.domain.repository.core.Listing
+import com.memebattle.pagingwithrepository.domain.repository.boundary.SubredditBoundaryCallback
+import com.memebattle.pagingwithrepository.domain.repository.network.NetworkState
+import com.memebattle.pagingwithrepository.domain.repository.core.RedditPostRepository
 
 class MainRepository(context: Context) : RedditPostRepository {
 
@@ -110,9 +113,9 @@ class MainRepository(context: Context) : RedditPostRepository {
             refresh(subReddit)
         }
         // We use toLiveData Kotlin extension function here, you could also use LivePagedListBuilder
-        val livePagedList = db.posts().postsBySubreddit(subReddit).toLiveData(
-                pageSize = pageSize,
-                boundaryCallback = boundaryCallback)
+        val livePagedList = LivePagedListBuilder(db.posts().postsBySubreddit(subReddit), pageSize)
+                .setBoundaryCallback(boundaryCallback)
+                .build()
 
         return Listing(
                 pagedList = livePagedList,

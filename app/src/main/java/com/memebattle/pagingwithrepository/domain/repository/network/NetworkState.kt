@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.memebattle.pagingwithrepository.domain.repository
+package com.memebattle.pagingwithrepository.domain.repository.network
 
 enum class Status {
     RUNNING,
