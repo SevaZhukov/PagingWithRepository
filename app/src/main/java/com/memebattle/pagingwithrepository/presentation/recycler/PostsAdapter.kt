@@ -23,6 +23,8 @@ import android.view.ViewGroup
 import com.memebattle.pagingwithrepository.R
 import com.memebattle.pagingwithrepository.domain.model.RedditPost
 import com.memebattle.pagingwithrepository.domain.repository.network.NetworkState
+import com.memebattle.pagingwithrepository.presentation.recycler.viewholder.NetworkStateItemViewHolder
+import com.memebattle.pagingwithrepository.presentation.recycler.viewholder.RedditPostViewHolder
 
 /**
  * A simple adapter implementation that shows Reddit posts.

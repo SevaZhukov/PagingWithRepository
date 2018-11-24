@@ -24,7 +24,7 @@ import com.memebattle.pagingwithrepository.domain.model.RedditPost
  * Database schema used by the DbRedditPostRepository
  */
 @Database(
-        entities = arrayOf(RedditPost::class),
+        entities = [RedditPost::class],
         version = 1,
         exportSchema = false
 )

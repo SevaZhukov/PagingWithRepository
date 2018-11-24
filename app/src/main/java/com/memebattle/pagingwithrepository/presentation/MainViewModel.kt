@@ -6,10 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.memebattle.pagingwithrepository.domain.repository.core.RedditPostRepository
 
 class MainViewModel(private val repository: RedditPostRepository) : ViewModel() {
-
+//todo refactor model to simple
     private val subredditName = MutableLiveData<String>()
     private val repoResult = Transformations.map(subredditName) {
-        repository.postsOfSubreddit(it, 30)
+        repository.postsOfSubreddit(it, 10)
     }
     val posts = Transformations.switchMap(repoResult) { it.pagedList }!!
     val networkState = Transformations.switchMap(repoResult) { it.networkState }!!

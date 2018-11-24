@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         model = getViewModel()
 
         initAdapter()
+        initSwipeToRefresh()
+        initSearch()
 
         val subreddit = savedInstanceState?.getString(KEY_SUBREDDIT) ?: DEFAULT_SUBREDDIT
         model.showSubReddit(subreddit)

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.memebattle.pagingwithrepository.presentation.recycler
+package com.memebattle.pagingwithrepository.presentation.recycler.viewholder
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
