@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val KEY_SUBREDDIT = "subreddit"
         const val DEFAULT_SUBREDDIT = "androiddev"
-        const val KEY_REPOSITORY_TYPE = "repository_type"
     }
 
     lateinit var model: MainViewModel

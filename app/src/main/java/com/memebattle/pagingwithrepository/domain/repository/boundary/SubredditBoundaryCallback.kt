@@ -93,9 +93,7 @@ class SubredditBoundaryCallback(
     private fun createWebserviceCallback(it: PagingRequestHelper.Request.Callback)
             : Callback<RedditApi.ListingResponse> {
         return object : Callback<RedditApi.ListingResponse> {
-            override fun onFailure(
-                    call: Call<RedditApi.ListingResponse>,
-                    t: Throwable) {
+            override fun onFailure(call: Call<RedditApi.ListingResponse>, t: Throwable) {
                 it.recordFailure(t)
             }
 

@@ -35,7 +35,6 @@ class RedditPostViewHolder(view: View)
     private val title: TextView = view.findViewById(R.id.title)
     private val subtitle: TextView = view.findViewById(R.id.subtitle)
     private val score: TextView = view.findViewById(R.id.score)
-    private val thumbnail : ImageView = view.findViewById(R.id.thumbnail)
     private var post : RedditPost? = null
     init {
         view.setOnClickListener {
@@ -52,16 +51,6 @@ class RedditPostViewHolder(view: View)
         subtitle.text = itemView.context.resources.getString(R.string.post_subtitle,
                 post?.author ?: "unknown")
         score.text = "${post?.score ?: 0}"
-        /*if (post?.thumbnail?.startsWith("http") == true) {
-            thumbnail.visibility = View.VISIBLE
-            glide.load(post.thumbnail)
-                    .centerCrop()
-                    .placeholder(R.drawable.ic_insert_photo_black_48dp)
-                    .into(thumbnail)
-        } else {
-            thumbnail.visibility = View.GONE
-            glide.clear(thumbnail)
-        }*/
     }
 
     companion object {

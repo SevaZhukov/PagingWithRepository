@@ -76,9 +76,7 @@ class MainRepository(context: Context) : RedditPostRepository {
                         networkState.value = NetworkState.error(t.message)
                     }
 
-                    override fun onResponse(
-                            call: Call<RedditApi.ListingResponse>,
-                            response: Response<RedditApi.ListingResponse>) {
+                    override fun onResponse(call: Call<RedditApi.ListingResponse>, response: Response<RedditApi.ListingResponse>) {
                         ioExecutor.execute {
                             db.runInTransaction {
                                 db.posts().deleteBySubreddit(subredditName)
